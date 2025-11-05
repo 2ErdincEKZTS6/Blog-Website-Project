@@ -17,8 +17,8 @@ func main() {
 
 	/*
 		post := admin_models.Post{}.Get(4)
-		post.Update("description", "selam bebeks")
-		post.Updates(admin_models.Post{Title: "erdinc ve sila", CategoryID: 6})
+		post.Update("description", "burası x in blogu")
+		post.Updates(admin_models.Post{Title: "selam ben x", CategoryID: 6})
 	*/
 	fmt.Println(admin_models.Post{}.GetAll("category_id", 1))
 	http.ListenAndServe(":8080", config.Routes())
