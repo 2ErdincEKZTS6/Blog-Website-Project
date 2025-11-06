@@ -10,8 +10,10 @@ import (
 func Routes() *httprouter.Router {
 	r := httprouter.New()
 
-	// ? /ADMİN
+	// ? /admin
+	//?  /admin/yeni-ekle
 	r.GET("/admin", admin.Dashboard{}.Index)
+	r.GET("/admin/yeni-ekle", admin.Dashboard{}.NewItem)
 
 	//? SERVE FİLES Admin dashboard dosyalarını gösterebilmek için
 	r.ServeFiles("/admin/assets/*filepath", http.Dir("admin/assets"))

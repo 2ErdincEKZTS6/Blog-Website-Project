@@ -25,3 +25,15 @@ func (dashboard Dashboard) Index(w http.ResponseWriter, r *http.Request, params 
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
+
+func (dashboad Dashboard) NewItem(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
+	view, err := template.ParseFiles(helpers.Include("dashboard/add")...)
+	if err != nil {
+		fmt.Println("\nyeni blog yazısı eklenirken hata oluştu")
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+	err = view.ExecuteTemplate(w, "index", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
